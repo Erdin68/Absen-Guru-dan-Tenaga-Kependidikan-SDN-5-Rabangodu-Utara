@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikasi Absensi Guru</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .app-name {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .absen-btn {
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .absen-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .hadir {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+        }
+        
+        .pulang {
+            background: linear-gradient(135deg, #2196F3 0%, #0D47A1 100%);
+        }
+        
+        .ijin {
+            background: linear-gradient(135deg, #FF9800 0%, #EF6C00 100%);
+        }
+        
+        .icon {
+            font-size: 24px;
+        }
+        
+        .instructions {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+            color: #666;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="app-name">ABSENSI GURU</div>
+        <h1>Pilih Jenis Absensi</h1>
+        
+        <div class="button-group">
+            <button class="absen-btn hadir" onclick="openForm('hadir')">
+                <span class="icon">✅</span>
+                <span>ABSEN HADIR</span>
+            </button>
+            
+            <button class="absen-btn pulang" onclick="openForm('pulang')">
+                <span class="icon">🏠</span>
+                <span>ABSEN PULANG</span>
+            </button>
+            
+            <button class="absen-btn ijin" onclick="openForm('ijin')">
+                <span class="icon">📋</span>
+                <span>FORM IJIN / SAKIT</span>
+            </button>
+        </div>
+        
+        <div class="instructions">
+            <h3>Cara Menggunakan:</h3>
+            <ul>
+                <li>Klik tombol sesuai kebutuhan absensi</li>
+                <li>Isi form yang terbuka di tab baru</li>
+                <li>Submit form setelah mengisi data</li>
+                <li>Form akan tersimpan otomatis di Google Sheets</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Ganti link di bawah ini dengan link Google Forms Anda
+        const formLinks = {
+            hadir: "https://forms.gle/L46w7vPifDvEyrjF8",
+            pulang: "https://forms.gle/Wu5WujkEoKEd2QX58", 
+            ijin: "https://forms.gle/uDGwNzSmohWK22kR9"
+        };
+
+        function openForm(type) {
+            if (formLinks[type].includes("PASTE_LINK")) {
+                alert("Silahkan ganti link Google Forms di kode terlebih dahulu!");
+                return;
+            }
+            window.open(formLinks[type], '_blank');
+        }
+    </script>
+</body>
+</html>
